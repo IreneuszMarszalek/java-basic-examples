@@ -4,6 +4,59 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Party {
+    public String sortPartyMemberWithOutTwoLoops (String tekst){
+        char[] charTbl = tekst.toCharArray();
+
+        //Arrays.sort(charTbl);
+        String result = "";
+        char temp = 0;
+
+        if (Character.isUpperCase(charTbl[0])) {
+            if (charTbl[0] != Character.toUpperCase(charTbl[1])) {
+                temp = charTbl[1];
+                charTbl[1] = charTbl[2];
+                charTbl[2] = temp;
+                result = sortPartyMemberWithOutTwoLoops(String.valueOf(charTbl) );
+            }else{
+                result = String.valueOf(charTbl[0]) + sortPartyMemberWithOutTwoLoops(String.valueOf(Arrays.copyOfRange(charTbl, 1, charTbl.length )));
+            }
+        }
+        if ((Character.isLowerCase(charTbl[0]))){
+            if (charTbl.length == 1){
+                result = String.valueOf(charTbl);
+            }
+            if (charTbl.length > 2) {
+                if ((charTbl[0] != charTbl[1]) && (charTbl[0] == charTbl[2])) {
+                    temp = charTbl[1];
+                    charTbl[1] = charTbl[2];
+                    charTbl[2] = temp;
+                    result = sortPartyMemberWithOutTwoLoops(String.valueOf(charTbl));
+                } else {
+                    result = String.valueOf(charTbl[0]) +  sortPartyMemberWithOutTwoLoops(String.valueOf(Arrays.copyOfRange(charTbl, 1, charTbl.length)));
+                }
+            }
+            if(charTbl.length == 2){
+                if ((charTbl[0] != charTbl[1])) {
+                    temp = charTbl[1];
+                    charTbl[1] = charTbl[2];
+                    charTbl[2] = temp;
+                    result = sortPartyMemberWithOutTwoLoops(String.valueOf(charTbl));
+                } else {
+                    result = String.valueOf(charTbl[0]) +  sortPartyMemberWithOutTwoLoops(String.valueOf(Arrays.copyOfRange(charTbl, 1, charTbl.length)));
+                }
+            }
+        }
+        return result;
+
+    }
+
+    public String sortString (String tekst){
+        char[] charTbl = tekst.toCharArray();
+        Arrays.sort(charTbl);
+        return String.valueOf(charTbl);
+    }
+
+
     public String sortPartyMember (String tekst){
         char[] charTbl = tekst.toCharArray();
 
