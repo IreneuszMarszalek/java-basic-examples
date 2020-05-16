@@ -4,6 +4,9 @@ import pl.sdacademy.examples.StringStats;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static pl.sdacademy.examples.StringStats.NOT_FOUND;
+import static pl.sdacademy.examples.StringStats.findLetter;
+
 public class StringStatsApp {
     public static void main(String[] args) {
         /*Scanner scanner = new Scanner(System.in);
@@ -26,6 +29,13 @@ public class StringStatsApp {
             System.out.println("Brak najczęściej występującej litery");
         }else {
             System.out.println(tbl2D[0][a.indexOfMostFrequentSign(tbl2D)] + ":" + tbl2D[1][a.indexOfMostFrequentSign(tbl2D)]);
+        }
+// cześć trenerki.
+        char foundLetter = findLetter();
+        if (foundLetter == NOT_FOUND) {
+            System.out.println("Brak najczęściej występującej litery");
+        } else {
+            System.out.println("Znaleziono - " + foundLetter);
         }
     }
 }
