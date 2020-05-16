@@ -2,10 +2,14 @@ package pl.sdacademy.examples;
 
 import com.sun.source.tree.ClassTree;
 
-import java.lang.instrument.ClassFileTransformer;
+
 import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class StringStats {
+    public static final char NOT_FOUND = 0;
+
     public String[][] signFrequencyin2D (String tekst){
         int tblSize = howManyUniqSigns(tekst);
         String[][] tempTbl  = new String[2][tblSize];
@@ -90,5 +94,35 @@ public class StringStats {
             }
         }
         return index;
+    }
+
+    public static char findLetter() { // by trenerka Anna Książek
+        Scanner console = new Scanner(System.in);
+        System.out.println("Podaj ciąg znaków:");
+        String letters = console.nextLine();
+        if (letters.length() == 1) {
+            return letters.charAt(0);
+        }
+        char[] characters = letters.toCharArray();
+        Arrays.sort(characters);
+        System.out.println(characters);
+        int howMany = 1;
+        int max = 1;
+        char foundLetter = NOT_FOUND;
+        for (int i = 1; i < characters.length; i++) {
+            if (characters[i] == characters[i - 1]) {
+                howMany++;
+            } else {
+                if (howMany > max) {
+                    System.out.println(characters[i - 1] + " wiecej wystąpień " + howMany);
+                    max = howMany;
+                    foundLetter = characters[i - 1];
+                } else if (howMany == max) {
+                    foundLetter = NOT_FOUND;
+                }
+                howMany = 1;
+            }
+        }
+        return foundLetter;
     }
 }
