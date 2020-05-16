@@ -1,6 +1,7 @@
 package pl.sdacademy.examples;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Party {
     public String sortPartyMember (String tekst){
@@ -15,6 +16,7 @@ public class Party {
             if (Character.isUpperCase(sortedTbl[i])){
                 result += Character.toString(sortedTbl[i]);
 
+
                 for (int j = i+1; j < sortedTbl.length; j++) {
                     if (sortedTbl[j] > Character.toLowerCase(sortedTbl[i])){
                         break;
@@ -28,7 +30,20 @@ public class Party {
                 break;
             }
         }
-
         return result;
+    }
+    // metoda by trenerka Anna Książek
+    public static void sortPartyMembers() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj uczestników przyjęcia:");
+        String allMembers = scanner.nextLine();
+        char[] members = allMembers.toCharArray();
+        Arrays.sort(members);
+        System.out.println(members);
+        for (char mother : members) {
+            if (Character.isUpperCase(mother)) {
+                System.out.print(mother);
+            }
+        }
     }
 }
