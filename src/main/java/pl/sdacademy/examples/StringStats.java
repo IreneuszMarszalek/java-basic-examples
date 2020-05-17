@@ -143,4 +143,17 @@ public class StringStats {
         byte[] ascii = str.getBytes(StandardCharsets.US_ASCII);
         System.out.println(str = Arrays.toString(ascii));
     }
+
+    //by Marcin Młynarski
+    public void fromCharToAscii() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Prosze podac znak");
+        String characters = input.nextLine();
+        char[] charactersArray = characters.toCharArray();
+        int ascii;
+        for (int i = 0; i < charactersArray.length; i++) {
+            ascii = (int)charactersArray[i];
+            System.out.println("znak " + charactersArray[i] + " to w Ascii " + ascii);
+        }
+    }
 }
