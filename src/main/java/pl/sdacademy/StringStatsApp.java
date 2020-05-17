@@ -7,7 +7,7 @@ public class StringStatsApp {
         /*Scanner scanner = new Scanner(System.in);
         System.out.print("Podaj tekst:");
         String text = scanner.nextLine();*/
-        String text = "Aa";
+
 
         StringStats a = new StringStats();
         /*String[][] tbl2D = a.signFrequencyin2D(text);
@@ -33,6 +33,8 @@ public class StringStatsApp {
             System.out.println("Znaleziono - " + foundLetter);
         }*/
 
-        System.out.println(a.string2ASCII(text));
+        String text = "BB";
+        //System.out.println(a.string2ASCII(text));
+        System.out.println(a.cezarCode(text, 1));
     }
 }

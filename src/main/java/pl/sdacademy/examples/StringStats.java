@@ -4,9 +4,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class StringStats {
     public static final char NOT_FOUND = 0;
+    public static final char SEPARATOR = '|';
 
     public String[][] signFrequencyin2D (String tekst){
         int tblSize = howManyUniqSigns(tekst);
@@ -129,7 +129,7 @@ public class StringStats {
         String result = "";
 
         for (char a:charTbl) {
-            result += (int) a;
+            result += SEPARATOR + (int) a;
         }
 
         return result;
@@ -146,6 +146,7 @@ public class StringStats {
 
     //by Marcin Młynarski
     public void fromCharToAscii() {
+
         Scanner input = new Scanner(System.in);
         System.out.println("Prosze podac znak");
         String characters = input.nextLine();
@@ -155,5 +156,22 @@ public class StringStats {
             ascii = (int)charactersArray[i];
             System.out.println("znak " + charactersArray[i] + " to w Ascii " + ascii);
         }
+    }
+
+    public String cezarCode (String tekst, int n){
+        String newText = "";
+
+        for(int i = 0; i<tekst.length(); i++){
+            if(tekst.charAt(i) == ' '){
+                newText+=Character.toString(tekst.charAt(i));
+            }else {
+                if(((int) tekst.charAt(i) + n - 96) % 26 == 0) {
+                    newText += Character.toString((char) 26 + 96);
+                }else {
+                    newText += Character.toString((char) ((int) tekst.charAt(i) + n - 96) % 26 + 96);
+                }
+            }
+        }
+        return newText;
     }
 }
