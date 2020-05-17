@@ -1,8 +1,6 @@
 package pl.sdacademy.examples;
 
-import com.sun.source.tree.ClassTree;
-
-
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -124,5 +122,25 @@ public class StringStats {
             }
         }
         return foundLetter;
+    }
+
+    public String string2ASCII (String tekst){
+        char[] charTbl = tekst.toCharArray();
+        String result = "";
+
+        for (char a:charTbl) {
+            result += (int) a;
+        }
+
+        return result;
+    }
+
+    // by Marcin Marczyk
+    public static void convertStringToASCII(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj ciąg znaków do przekonwertowania na ASCII");
+        String str = scanner.nextLine();
+        byte[] ascii = str.getBytes(StandardCharsets.US_ASCII);
+        System.out.println(str = Arrays.toString(ascii));
     }
 }

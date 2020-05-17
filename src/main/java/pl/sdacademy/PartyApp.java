@@ -10,6 +10,6 @@ public class PartyApp {
         String sortedTekst = a.sortString(tekst);
 
        // System.out.println(a.sortPartyMember(tekst));
-        System.out.println(a.sortPartyMemberWithOutTwoLoops(sortedTekst));
+        //System.out.println(a.sortPartyMemberWithOutTwoLoops(sortedTekst));
     }
 }
