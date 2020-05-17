@@ -4,7 +4,7 @@ import pl.sdacademy.examples.Party;
 
 public class PartyApp {
     public static void main(String[] args) {
-        String tekst = "aabccbABC";
+        String tekst = "aabbAB";
         Party a = new Party();
 
         String sortedTekst = a.sortString(tekst);
